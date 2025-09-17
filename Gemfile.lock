@@ -87,6 +87,8 @@ GEM
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
+    rackup (2.2.1)
+      rack (>= 3)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -155,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   erb_lint
+  rackup
   rubocop-fjord
   sinatra
   sinatra-contrib
