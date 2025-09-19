@@ -2,12 +2,12 @@
 
 source 'https://rubygems.org'
 
+gem 'rackup'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
-gem 'rackup'
 
 group :development do
-  gem 'rubocop-fjord'
   gem 'erb_lint'
+  gem 'rubocop-fjord'
 end
