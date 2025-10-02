@@ -1,4 +1,4 @@
-# frozen_string_literal:true
+# frozen_string_literal: true
 
 require 'sinatra'
 require 'sinatra/reloader'
@@ -11,12 +11,12 @@ helpers do
   include ERB::Util
 end
 
-def get_memos(file_path)
-  File.open(file_path) { |f| JSON.parse(f.read) }
+def read_memos
+  JSON.parse(File.read(FILE_PATH))
 end
 
-def set_memos(file_path, memos)
-  File.write(file_path, memos.to_json)
+def write_memos(memos)
+  File.write(FILE_PATH, memos.to_json)
 end
 
 get '/' do
@@ -24,7 +24,7 @@ get '/' do
 end
 
 get '/memos' do
-  @memos = get_memos(FILE_PATH)
+  @memos = read_memos
   erb :index
 end
 
@@ -33,10 +33,13 @@ get '/memos/new' do
 end
 
 get '/memos/:id' do
-  memos = get_memos(FILE_PATH)
+  memos = read_memos
   @id = params[:id]
-  @title = memos[params[:id]]['title']
-  @content = memos[params[:id]]['content']
+  @memo = memos[@id]
+  halt 404, erb(:not_found) unless @memo
+
+  @title = @memo['title']
+  @content = @memo['content']
   erb :show
 end
 
@@ -44,35 +47,39 @@ post '/memos' do
   title = params[:title]
   content = params[:content]
 
-  memos = get_memos(FILE_PATH)
+  memos = read_memos
   id = ((memos.keys.map(&:to_i).max || 0) + 1).to_s
   memos[id] = { 'title' => title, 'content' => content }
-  set_memos(FILE_PATH, memos)
+  write_memos(memos)
 
   redirect '/memos'
 end
 
 delete '/memos/:id' do
-  memos = get_memos(FILE_PATH)
+  memos = read_memos
   memos.delete(params[:id])
-  set_memos(FILE_PATH, memos)
+  write_memos(memos)
 
   redirect '/memos'
 end
 
 get '/memos/:id/edit' do
-  memos = get_memos(FILE_PATH)
+  memos = read_memos
   @id = params[:id]
   @memo = memos[@id]
+  halt 404, erb(:not_found) unless @memo
   erb :edit
 end
 
 patch '/memos/:id' do
-  memos = get_memos(FILE_PATH)
+  memos = read_memos
   id = params[:id]
-  memos[id]['title'] = params[:title]
-  memos[id]['content'] = params[:content]
-  set_memos(FILE_PATH, memos)
+  memo = memos[id]
+  halt 404, erb(:not_found) unless memo
+
+  memo['title'] = params[:title]
+  memo['content'] = params[:content]
+  write_memos(memos)
 
   redirect '/memos'
 end

@@ -23,7 +23,6 @@ label {
 /* タイトル入力欄 */
 input[type="text"] {
   display: block;
-  margin-bottom: 10px;
   width: 300px;
   padding: 5px;
   margin-bottom: 15px;
@@ -33,7 +32,6 @@ input[type="text"] {
 /* 内容入力欄 */
 textarea {
   display: block;
-  margin-bottom: 10px;
   width: 300px;
   height: 150px;
   padding: 5px;
@@ -90,7 +88,7 @@ input[type="submit"] {
 }
 
 .btn-edit:hover {
-  background-color: #3a3
+  background-color: #3a3;
 }
 
 /* 削除ボタン（赤） */
@@ -99,11 +97,16 @@ input[type="submit"] {
 }
 
 .btn-delete:hover {
-  background-color: #d33
+  background-color: #d33;
 }
 
 .memo-title {
   font-size: 18px;
   font-weight: bold;
   margin-right: 8px;
+}
+
+.inline-form {
+  display: inline;
+  margin-left: 6px;
 }

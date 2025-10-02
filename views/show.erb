@@ -1,15 +1,15 @@
 <div>
   <h2><%= h @title %></h2>
-  <p><%= @content %></p>
+  <p><%= h @content %></p>
 </div>
 
-<a href="/memos/<%= @id %>/edit" class="btn btn-edit">編集</a>
+<a href="/memos/<%= h @id %>/edit" class="btn btn-edit">編集</a>
 
-<form action="/memos/<%= params[:id] %>" method="post" style="display:inline;">
+<form action="/memos/<%= h @id %>" method="post" class="inline-form">
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class="btn btn-delete">削除</button>
 </form>
-<p>
+
 <div>
   <a href="/memos">一覧に戻る</a>
 </div>
