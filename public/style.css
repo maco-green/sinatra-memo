@@ -1,0 +1,112 @@
+/* ページ全体の基本設定 */
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+/* 見出しを濃い緑に */
+h1 { 
+  color: #282;
+}
+
+/* フォームの入力欄 */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* 各入力項目のラベル */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* タイトル入力欄 */
+input[type="text"] {
+  display: block;
+  width: 300px;
+  padding: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* 内容入力欄 */
+textarea {
+  display: block;
+  width: 300px;
+  height: 150px;
+  padding: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* 新規登録ボタン */
+input[type="submit"] {
+  padding: 6px 12px;
+  background-color: #282;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* 新規メモ作成リンクを囲むdiv */
+.new-memo-link {
+  margin: 20px 0;
+  margin-left: 20px;
+}
+
+/* 新規メモ作成リンク自体の見た目 */
+.new-memo-link a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #282;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* 新規メモ作成リンクのカーソル色変更 */
+.new-memo-link a:hover {
+  background-color: #3a3;
+}
+
+/* 編集・削除の共通ボタン */
+.btn {
+  display: inline-block;
+  padding: 4px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* 編集ボタン（緑） */
+.btn-edit {
+  background-color: #282;
+}
+
+.btn-edit:hover {
+  background-color: #3a3;
+}
+
+/* 削除ボタン（赤） */
+.btn-delete {
+  background-color: #a22;
+}
+
+.btn-delete:hover {
+  background-color: #d33;
+}
+
+.memo-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.inline-form {
+  display: inline;
+  margin-left: 6px;
+}

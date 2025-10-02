@@ -1,0 +1,22 @@
+<div class="new-memo-link">
+  <a href="/memos/new" class="action-button">メモの新規作成</a>
+</div>
+
+<ul>
+  <% @memos.each do |id, memo| %>
+    <li>
+      <strong><a href="/memos/<%= id %>" class="memo-title"><%= h memo["title"] %></a></strong>
+
+      <a href="/memos/<%= id %>/edit" class="btn btn-edit">編集</a>
+
+      <form action="/memos/<%= id %>" method="post" class="inline-form">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="btn btn-delete">削除</button>
+      </form>
+
+      <br>
+      <p><%= h memo["content"] %></p>
+
+    </li>
+  <% end %>
+</ul>

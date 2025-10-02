@@ -1,0 +1,22 @@
+<h2>メモを編集</h2>
+<form action="/memos" method="post">
+
+  <div class="form-group">
+    <label for="title">タイトル</label>
+    <input type="text" id="title" name="title" autocomplete="off">
+  </div>
+
+  <div class="form-group">
+    <label for="content">内容</label>
+    <textarea id="content" name="content"></textarea>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="新規作成" class="btn btn-edit">
+  </div>
+
+  <div class="form-group">
+    <a href="/memos">キャンセル</a>
+  </div>
+
+</form>
