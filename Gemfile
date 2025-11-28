@@ -11,3 +11,5 @@ group :development do
   gem 'erb_lint'
   gem 'rubocop-fjord'
 end
+
+gem 'pg', '~> 1.6'
