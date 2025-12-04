@@ -77,6 +77,13 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
+    pg (1.6.2)
+    pg (1.6.2-aarch64-linux)
+    pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-arm64-darwin)
+    pg (1.6.2-x86_64-darwin)
+    pg (1.6.2-x86_64-linux)
+    pg (1.6.2-x86_64-linux-musl)
     prism (1.4.0)
     racc (1.8.1)
     rack (3.2.1)
@@ -157,6 +164,7 @@ PLATFORMS
 
 DEPENDENCIES
   erb_lint
+  pg (~> 1.6)
   rackup
   rubocop-fjord
   sinatra
